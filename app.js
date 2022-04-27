@@ -2,8 +2,6 @@ const operator = document.querySelectorAll(".operator")
 const screen = document.querySelector("#screen")
 const buttons = document.querySelectorAll(".buttons span")
 const buttonsArray = Array.from(buttons)
-document.querySelectorAll('.operator')[1].innerText = '/';
-document.querySelectorAll('.operator')[2].innerText = '*';
 
 
 buttonsArray.map(button => button.addEventListener("click",
@@ -11,7 +9,11 @@ buttonsArray.map(button => button.addEventListener("click",
         if (button.textContent === "C") {
             screen.textContent = ''
         } else if (screen.textContent === "ERROR") {
-            end
+            return;
+        } else if (button.textContent === "÷") {
+            screen.textContent += '/'
+        } else if (button.textContent === "x") {
+            screen.textContent += '*'
         } else if (button.textContent !== "=") {
             screen.textContent += button.textContent
         } else if (button.textContent === "=") {
